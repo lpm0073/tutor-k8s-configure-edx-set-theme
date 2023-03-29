@@ -1,0 +1,24 @@
+name: Open edX Tutor k8s set theme
+description: Github Action to set the theme for Open edX applications
+branding:
+  icon: 'cloud'
+  color: 'orange'
+inputs:
+  theme-name:
+    description: 'The custom theme package to apply to your Open edX applications. This must be included in your openedx build. Example: openedx-theme'
+    required: true
+    type: string
+runs:
+  using: "composite"
+  steps:
+    - name: Set theme - tutor 15x and later syntax
+      continue-on-error: true
+      shell: bash
+      run:  |-
+        tutor k8s do settheme ${{ inputs.theme-name }}
+
+    - name: Set theme - legacy legacy syntax
+      continue-on-error: true
+      shell: bash
+      run:  |-
+        tutor k8s settheme ${{ inputs.theme-name }}
