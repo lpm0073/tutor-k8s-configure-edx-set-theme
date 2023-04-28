@@ -50,7 +50,7 @@ jobs:
       #             The name of the custom theme to apply to your Open edX applications.
       #             This theme package must exist in your openedx build.          
       - name: Set theme
-        uses: openedx-actions/tutor-k8s-configure-edx-set-theme@v0.1.1
+        uses: openedx-actions/tutor-k8s-configure-edx-set-theme@v0.1.2
         with:
           theme-name: openedx-theme
 ```
