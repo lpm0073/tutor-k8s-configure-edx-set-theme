@@ -25,11 +25,11 @@ jobs:
 
     steps:
       # required antecedent
-      - uses: actions/checkout@v3.5.0
+      - uses: actions/checkout
 
       # required antecedent
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v2
+        uses: aws-actions/configure-aws-credentials
         with:
           aws-access-key-id: ${{ secrets.THE_NAME_OF_YOUR_AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.THE_NAME_OF_YOUR_AWS_SECRET_ACCESS_KEY }}
@@ -37,7 +37,7 @@ jobs:
 
       # install and configure tutor and kubectl
       - name: Initialize environment
-        uses: openedx-actions/tutor-k8s-init@v1.0.8
+        uses: openedx-actions/tutor-k8s-init
         with:
           namespace: openedx-prod
 
@@ -50,7 +50,7 @@ jobs:
       #             The name of the custom theme to apply to your Open edX applications.
       #             This theme package must exist in your openedx build.          
       - name: Set theme
-        uses: openedx-actions/tutor-k8s-configure-edx-set-theme@v0.1.2
+        uses: openedx-actions/tutor-k8s-configure-edx-set-theme
         with:
           theme-name: openedx-theme
 ```
